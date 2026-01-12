@@ -8,6 +8,7 @@
             background-size: cover;
             background-position: center;
             height: 80vh;
+            min-height: 500px;
             width: 100%;
             display: flex;
             align-items: center;
@@ -22,25 +23,28 @@
         .hero-content {
             max-width: 800px;
             width: 100%;
+            padding: 0 15px;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
             margin-bottom: 2rem;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            line-height: 1.5;
         }
 
         /* --- SEARCH BAR --- */
         .hero-search {
             background: white;
-            padding: 8px;
+            padding: 6px;
             border-radius: 50px;
             display: flex;
             align-items: center;
@@ -48,16 +52,17 @@
             max-width: 600px;
             margin: 0 auto;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            gap: 5px;
         }
 
         .hero-search input {
             border: none;
             padding: 12px 20px;
             flex-grow: 1;
-            /* Takes available space */
             outline: none;
             border-radius: 50px;
             font-size: 1rem;
+            min-width: 0;
         }
 
         .hero-search button {
@@ -69,10 +74,11 @@
             font-weight: 600;
             transition: 0.3s;
             flex-shrink: 0;
+            white-space: nowrap;
         }
 
         .hero-search button:hover {
-            background:  #142d48 
+            background: #142d48;
         }
 
         /* --- CATEGORY CARDS --- */
@@ -106,24 +112,52 @@
             padding: 20px;
             color: white;
         }
+
+        .cat-overlay h4 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 0.5rem;
+        }
+
+        .cat-overlay small {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+        }
+
+        /* --- RESPONSIVE BREAKPOINTS --- */
+        
+        /* Tablets and below */
+        @media (max-width: 992px) {
+            .hero-section {
+                height: 70vh;
+                min-height: 450px;
+            }
+
+            .cat-img {
+                height: 220px;
+            }
+        }
+
+        /* Mobile devices */
         @media (max-width: 768px) {
             .hero-section {
                 height: 60vh;
+                min-height: 400px;
                 border-radius: 0.5rem;
+                margin-top: 0.5rem;
+                padding: 15px;
             }
 
-            .hero-content h1 {
-                font-size: 2rem;
+            .hero-content {
+                padding: 0 10px;
             }
 
             .hero-content p {
-                font-size: 1rem;
                 margin-bottom: 1.5rem;
             }
 
             .hero-search {
                 padding: 5px;
-                max-width: 95%;
+                max-width: 100%;
+                flex-wrap: nowrap;
             }
 
             .hero-search input {
@@ -136,8 +170,93 @@
                 font-size: 0.9rem;
             }
 
+            .hero-search button i {
+                margin-right: 3px;
+            }
+
             .cat-img {
                 height: 200px;
+            }
+
+            .cat-overlay {
+                padding: 15px;
+            }
+
+            .row.g-4 {
+                gap: 1rem !important;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 576px) {
+            .hero-section {
+                height: 50vh;
+                min-height: 350px;
+                margin-top: 0;
+                border-radius: 0;
+            }
+
+            .hero-content h1 {
+                margin-bottom: 0.75rem;
+            }
+
+            .hero-content p {
+                margin-bottom: 1.25rem;
+            }
+
+            .hero-search {
+                padding: 4px;
+            }
+
+            .hero-search input {
+                padding: 10px 12px;
+                font-size: 0.85rem;
+            }
+
+            .hero-search button {
+                padding: 10px 15px;
+                font-size: 0.85rem;
+            }
+
+            .cat-img {
+                height: 180px;
+            }
+
+            .cat-overlay {
+                padding: 12px;
+            }
+
+            .text-center.mt-5.mb-5 {
+                margin-top: 3rem !important;
+                margin-bottom: 3rem !important;
+            }
+
+            .btn-lg {
+                padding: 0.75rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 400px) {
+            .hero-search button span {
+                display: none;
+            }
+
+            .hero-search button {
+                padding: 10px 15px;
+            }
+
+            .hero-search button i {
+                margin-right: 0;
+            }
+        }
+
+        /* Container adjustments */
+        @media (max-width: 768px) {
+            .container-fluid {
+                padding-left: 15px;
+                padding-right: 15px;
             }
         }
     </style>
@@ -151,7 +270,10 @@
 
                 <form action="/listings" method="GET" class="hero-search">
                     <input type="text" name="location" placeholder="Search destinations..." aria-label="Search">
-                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                    <button type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <span> Search</span>
+                    </button>
                 </form>
             </div>
         </div>
@@ -162,20 +284,20 @@
                 <p class="text-muted">Handpicked collections for your next trip</p>
             </div>
 
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-sm-6 col-md-4">
                 <a href="/listings?category=Mountains" class="text-decoration-none">
                     <div class="card cat-card text-white">
                         <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60"
                             class="card-img cat-img" alt="Mountains">
                         <div class="cat-overlay">
                             <h4 class="card-title mb-1"><i class="fa-solid fa-mountain"></i> Mountains</h4>
-                            <small class="card-text text-white" >Escape to the hills</small>
+                            <small class="card-text text-white">Escape to the hills</small>
                         </div>
                     </div>
                 </a>
             </div>
 
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-sm-6 col-md-4">
                 <a href="/listings?category=Amazing Pools" class="text-decoration-none">
                     <div class="card cat-card text-white">
                         <img src="https://res.cloudinary.com/dbwt5tsce/image/upload/v1768156845/cozio_dev/jsobxppgxxjv5quyuulu.jpg"
@@ -188,7 +310,7 @@
                 </a>
             </div>
 
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-sm-6 col-md-4">
                 <a href="/listings?category=Camping" class="text-decoration-none">
                     <div class="card cat-card text-white">
                         <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60"
