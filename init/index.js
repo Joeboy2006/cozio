@@ -22,7 +22,7 @@ const initDB = async () => {
     console.log("Existing listings Deleted");
     const updatedInitData = initData.data.map((obj) => ({
       ...obj,
-      owner: new mongoose.Types.ObjectId("695bd37340406b3879e1478b"),
+      owner: new mongoose.Types.ObjectId("69637fc872d2f914818b8718"),
     }));
     //  insert
     await Listing.insertMany(updatedInitData);

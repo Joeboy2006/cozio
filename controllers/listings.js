@@ -49,7 +49,7 @@ module.exports.showListing = async (req, res) => {
     req.flash("error", "Cannot find that listing!");
     return res.redirect("/listings");
   }
-  console.log(listx.owner.username);
+  // console.log(listx.owner.username);
   res.render("./listing/show.ejs", { listx });
 };
 

@@ -57,9 +57,6 @@ const sessionOptions = {
 
 
 
-
-
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -78,6 +75,7 @@ Main()
 async function Main() {
   await mongoose.connect(dbUrl);
 }
+
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
@@ -85,11 +83,15 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get("/", (req, res) => {
+  res.render("home.ejs");
+});
+
+
 app.use("/listings", listingsRoutes);
 app.use("/listings/:id/reviews", reviewsRoutes);
 app.use("/", UserRoutes);
 
-//demo route
 
 
 // 404 ROUTE HANDLER

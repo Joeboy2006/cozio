@@ -1,0 +1,208 @@
+<% layout("/layouts/boilerplate") %>
+
+    <style>
+        .nav-search-bar { display: none !important; }
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+                url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            padding: 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* --- SEARCH BAR --- */
+        .hero-search {
+            background: white;
+            padding: 8px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-search input {
+            border: none;
+            padding: 12px 20px;
+            flex-grow: 1;
+            /* Takes available space */
+            outline: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .hero-search button {
+            background: #1a3b5d;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            flex-shrink: 0;
+        }
+
+        .hero-search button:hover {
+            background:  #142d48 
+        }
+
+        /* --- CATEGORY CARDS --- */
+        .cat-card {
+            border: none;
+            transition: transform 0.3s;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            height: 100%;
+            position: relative;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .cat-img {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .cat-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 31, 66, 0.692), transparent);
+            padding: 20px;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 60vh;
+                border-radius: 0.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-search {
+                padding: 5px;
+                max-width: 95%;
+            }
+
+            .hero-search input {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero-search button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .cat-img {
+                height: 200px;
+            }
+        }
+    </style>
+
+    <div class="container-fluid mb-5">
+
+        <div class="hero-section">
+            <div class="hero-content">
+                <h1>Find Your Next Adventure</h1>
+                <p>Discover homes, villas, and unique stays around the world.</p>
+
+                <form action="/listings" method="GET" class="hero-search">
+                    <input type="text" name="location" placeholder="Search destinations..." aria-label="Search">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-5 g-4">
+            <div class="col-12 text-center mb-2">
+                <h2 class="fw-bold">Explore Top Categories</h2>
+                <p class="text-muted">Handpicked collections for your next trip</p>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <a href="/listings?category=Mountains" class="text-decoration-none">
+                    <div class="card cat-card text-white">
+                        <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60"
+                            class="card-img cat-img" alt="Mountains">
+                        <div class="cat-overlay">
+                            <h4 class="card-title mb-1"><i class="fa-solid fa-mountain"></i> Mountains</h4>
+                            <small class="card-text text-white" >Escape to the hills</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <a href="/listings?category=Amazing Pools" class="text-decoration-none">
+                    <div class="card cat-card text-white">
+                        <img src="https://res.cloudinary.com/dbwt5tsce/image/upload/v1768156845/cozio_dev/jsobxppgxxjv5quyuulu.jpg"
+                            class="card-img cat-img" alt="Pools">
+                        <div class="cat-overlay">
+                            <h4 class="card-title mb-1"><i class="fa-solid fa-person-swimming"></i> Amazing Pools</h4>
+                            <small class="card-text text-white">Splash into luxury</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-12 col-md-4">
+                <a href="/listings?category=Camping" class="text-decoration-none">
+                    <div class="card cat-card text-white">
+                        <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=60"
+                            class="card-img cat-img" alt="Camping">
+                        <div class="cat-overlay">
+                            <h4 class="card-title mb-1"><i class="fa-solid fa-campground"></i> Camping</h4>
+                            <small class="card-text text-white">Stay under the stars</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="text-center mt-5 mb-5">
+            <a href="/listings" class="btn btn-dark btn-lg rounded-pill px-5 shadow-sm">View All Listings</a>
+        </div>
+    </div>

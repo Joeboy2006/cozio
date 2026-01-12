@@ -11,7 +11,7 @@ module.exports.signup = async (req, res, next) => {
     const registeredUser = await User.register(user, password);
 
     // Automatically login after signup
-    console.log(registeredUser);
+    // console.log(registeredUser);
     req.login(registeredUser, (err) => {
       if (err) return next(err);
       req.flash("success", "Welcome to Cozio!");
